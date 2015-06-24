@@ -17,6 +17,13 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  host: <%= ENV['PG_HOST'] || 'localhost' %>
+  encoding: unicode
+  pool: 5
+  username: <%= ENV['PG_USER'] || 'postgres' %>
+  password: <%= ENV['PG_PASS']  || 'postgres' %>
+  min_messages: WARNING
+  port: <%= ENV['PG_PORT'] || 5432 %>
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
@@ -80,6 +87,4 @@ test:
 #
 production:
   <<: *default
-  database: sig-api_production
-  username: sig-api
-  password: <%= ENV['SIG-API_DATABASE_PASSWORD'] %>
+  database: sig-api

@@ -8,7 +8,10 @@ gem 'rails-api'
 
 gem 'pg'
 
+gem 'devise'
+gem 'omniauth'
 gem 'devise_token_auth'
+
 
 
 
@@ -24,6 +27,7 @@ gem 'devise_token_auth'
 # Deploy with Capistrano
 # gem 'capistrano', :group => :development
 
+gem 'figaro'
 
 # To use debugger
 group :development do
