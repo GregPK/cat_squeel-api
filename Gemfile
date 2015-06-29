@@ -22,8 +22,9 @@ gem 'omniauth'
 # Deploy with Capistrano
 # gem 'capistrano', :group => :development
 
-group :test do
-  gem 'minitest-spec-rails'
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0'
+  # gem 'activerecord-nulldb-adapter', :git => 'git://github.com/nulldb/nulldb.git'
 end
 
 group :development do
