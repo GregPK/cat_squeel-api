@@ -3,7 +3,11 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  before_save :ensure_authentication_token
+
+  def initialize
+    super
+    ensure_authentication_token
+  end
 
   def ensure_authentication_token
     if authentication_token.blank?
@@ -14,9 +18,6 @@ class User < ActiveRecord::Base
   private
 
   def generate_authentication_token
-    loop do
-      token = Devise.friendly_token
-      break token unless User.where(authentication_token: token).first
-    end
+    Devise.friendly_token
   end
 end

@@ -22,10 +22,12 @@ gem 'omniauth'
 # Deploy with Capistrano
 # gem 'capistrano', :group => :development
 
-gem 'figaro'
+group :test do
+  gem 'minitest-spec-rails'
+end
 
-# To use debugger
 group :development do
+  gem 'figaro'
   gem 'pry'
   gem 'pry-byebug'
   gem 'pry-stack_explorer'
