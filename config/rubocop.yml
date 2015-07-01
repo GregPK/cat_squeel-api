@@ -6,10 +6,16 @@ AllCops:
   Exclude:
     - 'vendor/**/*'
     - 'bin/*'
+    - 'db/*'
+    - 'config/**/*'
+    - !ruby/regexp /[Rake|Guard]file/
 
   RunRailsCops: true
   DisplayCopNames: true
   DisplayStyleGuide: true
+
+Style/Documentation:
+  Enabled: false
 
 Style/AndOr:
   EnforcedStyle: conditionals
