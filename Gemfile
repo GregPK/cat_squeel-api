@@ -39,6 +39,9 @@ group :development do
   gem 'pry-stack_explorer'
 
   gem 'spring'
+  gem 'spring-commands-rspec'
 
   gem 'sandi_meter'
+
+  gem 'guard-rspec', require: false
 end
