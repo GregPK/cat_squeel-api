@@ -9,7 +9,6 @@ gem 'pg'
 gem 'devise'
 gem 'omniauth'
 
-
 # To use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -24,8 +23,9 @@ gem 'omniauth'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
-  # gem 'activerecord-nulldb-adapter', :git => 'git://github.com/nulldb/nulldb.git'
-  gem 'sandi_meter'
+
+  gem 'factory_girl'
+  gem 'faker'
 end
 
 group :development do
@@ -36,4 +36,5 @@ group :development do
 
   gem 'spring'
 
+  gem 'sandi_meter'
 end
