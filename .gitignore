@@ -16,8 +16,11 @@
 /tmp
 
 # Ignore IDEs
-
 /.idea
+
+# Ignore project stats
+/project_stats/
+
 
 # Ignore application configuration
 /config/application.yml

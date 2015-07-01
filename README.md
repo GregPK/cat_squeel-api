@@ -86,6 +86,20 @@ I don't want to fall prey to future creep, but there are some fun things that I 
 
 Deveped using Ruby 2.0, but I hadn't used any version specific things, so should probably run on 1.9.3 (not tested)
 
+### Deploy hooks
+
+There is some development infrastructure setup alongside the project in the form of git hooks. Currently this
+functionality is:
+
+* `post-commit`
+** Save current sandi_meter start for later analysis
+
+To setup all hooks run the following in the project root:
+
+```bash
+ln -s development/hooks/post-commit.rb .git/hooks/post-commit
+```
+
 ## Changelog (old)
 
 ### 0.2.0

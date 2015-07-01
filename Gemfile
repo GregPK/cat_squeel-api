@@ -25,6 +25,7 @@ gem 'omniauth'
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   # gem 'activerecord-nulldb-adapter', :git => 'git://github.com/nulldb/nulldb.git'
+  gem 'sandi_meter'
 end
 
 group :development do
