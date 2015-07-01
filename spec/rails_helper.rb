@@ -25,6 +25,7 @@ require 'rspec/rails'
 ActiveRecord::Migration.maintain_test_schema!
 
 require 'devise'
+require 'support/controller_macros'
 
 RSpec.configure do |config|
   # RSpec Rails can automatically mix in different behaviours to your tests
@@ -42,5 +43,9 @@ RSpec.configure do |config|
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
 
+  config.include FactoryGirl::Syntax::Methods
+
   config.include Devise::TestHelpers, :type => :controller
+  config.extend ControllerMacros, :type => :controller
+  config.raise_errors_for_deprecations!
 end
