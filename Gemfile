@@ -28,6 +28,10 @@ group :development, :test do
   gem 'faker'
 end
 
+group :test do
+  gem 'database_cleaner'
+end
+
 group :development do
   gem 'figaro'
   gem 'pry'
