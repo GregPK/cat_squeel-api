@@ -1,0 +1,298 @@
+# This is the default configuration file. Enabling and disabling is configured
+# in separate files. This file adds all other parameters apart from Enabled.
+
+# Common configuration.
+AllCops:
+  Exclude:
+    - 'vendor/**/*'
+    - 'bin/*'
+
+  RunRailsCops: true
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+
+Style/AndOr:
+  EnforcedStyle: conditionals
+  SupportedStyles:
+    - always
+    - conditionals
+
+
+Style/BlockDelimiters:
+  EnforcedStyle: semantic
+  SupportedStyles:
+    - semantic
+
+Style/EmptyLinesAroundBlockBody:
+  EnforcedStyle: no_empty_lines
+  SupportedStyles:
+    - empty_lines
+    - no_empty_lines
+
+Style/EmptyLinesAroundClassBody:
+  EnforcedStyle: no_empty_lines
+  SupportedStyles:
+    - empty_lines
+    - no_empty_lines
+
+Style/EmptyLinesAroundModuleBody:
+  EnforcedStyle: no_empty_lines
+  SupportedStyles:
+    - empty_lines
+    - no_empty_lines
+
+Style/Encoding:
+  EnforcedStyle: when_needed
+  SupportedStyles:
+    - when_needed
+    - always
+
+Style/NonNilCheck:
+  # With `IncludeSemanticChanges` set to `true`, this cop reports offenses for
+  # `!x.nil?` and autocorrects that and `x != nil` to solely `x`, which is
+  # **usually** OK, but might change behavior.
+  #
+  # With `IncludeSemanticChanges` set to `false`, this cop does not report
+  # offenses for `!x.nil?` and does no changes that might change behavior.
+  IncludeSemanticChanges: false
+
+Style/MethodDefParentheses:
+  EnforcedStyle: require_parentheses
+  SupportedStyles:
+    - require_parentheses
+    - require_no_parentheses
+
+Style/MethodName:
+  EnforcedStyle: snake_case
+  SupportedStyles:
+    - snake_case
+    - camelCase
+
+Style/MultilineOperationIndentation:
+  EnforcedStyle: aligned
+  SupportedStyles:
+    - aligned
+    - indented
+
+Style/NumericLiterals:
+  MinDigits: 5
+
+# Allow safe assignment in conditions.
+Style/ParenthesesAroundCondition:
+  AllowSafeAssignment: true
+
+Style/PercentQLiterals:
+  EnforcedStyle: lower_case_q
+  SupportedStyles:
+    - lower_case_q # Use %q when possible, %Q when necessary
+    - upper_case_q # Always use %Q
+
+Style/RedundantReturn:
+  # When true allows code like `return x, y`.
+  AllowMultipleReturnValues: false
+
+# Use / or %r around regular expressions.
+Style/RegexpLiteral:
+  EnforcedStyle: slashes
+  # slashes: Always use slashes.
+  # percent_r: Always use %r.
+  # mixed: Use slashes on single-line regexes, and %r on multi-line regexes.
+  SupportedStyles:
+    - slashes
+    - percent_r
+    - mixed
+  # If false, the cop will always recommend using %r if one or more slashes
+  # are found in the regexp string.
+  AllowInnerSlashes: false
+
+Style/Semicolon:
+  # Allow ; to separate several expressions on the same line.
+  AllowAsExpressionSeparator: false
+
+Style/SignalException:
+  EnforcedStyle: semantic
+  SupportedStyles:
+    - only_raise
+    - only_fail
+    - semantic
+
+Style/SingleLineBlockParams:
+  Methods:
+    - reduce:
+        - a
+        - e
+    - inject:
+        - a
+        - e
+
+Style/SingleLineMethods:
+  AllowIfMethodIsEmpty: true
+
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+  SupportedStyles:
+    - single_quotes
+    - double_quotes
+
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: single_quotes
+  SupportedStyles:
+    - single_quotes
+    - double_quotes
+
+Style/SpaceAroundBlockParameters:
+  EnforcedStyleInsidePipes: no_space
+  SupportedStyles:
+    - space
+    - no_space
+
+Style/SpaceAroundEqualsInParameterDefault:
+  EnforcedStyle: space
+  SupportedStyles:
+    - space
+    - no_space
+
+Style/SpaceAroundOperators:
+  MultiSpaceAllowedForOperators:
+    - '='
+    - '=>'
+
+Style/SpaceBeforeBlockBraces:
+  EnforcedStyle: space
+  SupportedStyles:
+    - space
+    - no_space
+
+Style/SpaceInsideBlockBraces:
+  EnforcedStyle: space
+  SupportedStyles:
+    - space
+    - no_space
+  # Valid values are: space, no_space
+  EnforcedStyleForEmptyBraces: no_space
+  # Space between { and |. Overrides EnforcedStyle if there is a conflict.
+  SpaceBeforeBlockParameters: true
+
+Style/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: space
+  EnforcedStyleForEmptyBraces: no_space
+  SupportedStyles:
+    - space
+    - no_space
+
+Style/SymbolProc:
+  # A list of method names to be ignored by the check.
+  # The names should be fairly unique, otherwise you'll end up ignoring lots of code.
+  IgnoredMethods:
+    - respond_to
+
+Style/TrailingBlankLines:
+  EnforcedStyle: final_newline
+  SupportedStyles:
+    - final_newline
+    - final_blank_line
+
+Style/TrailingComma:
+  # If EnforcedStyleForMultiline is comma, the cop requires a comma after the
+  # last item of a list, but only for lists where each item is on its own line.
+  # If EnforcedStyleForMultiline is consistent_comma, the cop requires a comma
+  # after the last item of a list, for all lists.
+  EnforcedStyleForMultiline: no_comma
+  SupportedStyles:
+    - comma
+    - consistent_comma
+    - no_comma
+
+##################### Lint ##################################
+
+# Allow safe assignment in conditions.
+Lint/AssignmentInCondition:
+  AllowSafeAssignment: true
+
+# Align ends correctly.
+Lint/EndAlignment:
+  # The value `keyword` means that `end` should be aligned with the matching
+  # keyword (if, while, etc.).
+  # The value `variable` means that in assignments, `end` should be aligned
+  # with the start of the variable on the left hand side of `=`. In all other
+  # situations, `end` should still be aligned with the keyword.
+  AlignWith: keyword
+  SupportedStyles:
+    - keyword
+    - variable
+  AutoCorrect: false
+
+Lint/DefEndAlignment:
+  # The value `def` means that `end` should be aligned with the def keyword.
+  # The value `start_of_line` means that `end` should be aligned with method
+  # calls like `private`, `public`, etc, if present in front of the `def`
+  # keyword on the same line.
+  AlignWith: start_of_line
+  SupportedStyles:
+    - start_of_line
+    - def
+  AutoCorrect: false
+
+##################### Rails ##################################
+
+Rails/ActionFilter:
+  EnforcedStyle: action
+  SupportedStyles:
+    - action
+    - filter
+  Include:
+    - app/controllers/**/*.rb
+
+Rails/Date:
+  # The value `always` disallows usage of `Date.today`, `Date.current`,
+  # `Date#to_time` etc.
+  # The value `acceptable` allows usage of `Date.current`, `Date.yesterday`, etc
+  # (but not `Date.today`) which are overriden by ActiveSupport to handle current
+  # time zone.
+  EnforcedStyle: always
+  SupportedStyles:
+    - always
+    - acceptable
+
+Rails/DefaultScope:
+  Include:
+    - app/models/**/*.rb
+
+Rails/FindBy:
+  Include:
+    - app/models/**/*.rb
+
+Rails/FindEach:
+  Include:
+    - app/models/**/*.rb
+
+Rails/HasAndBelongsToMany:
+  Include:
+    - app/models/**/*.rb
+
+Rails/Output:
+  Include:
+    - app/**/*.rb
+    - config/**/*.rb
+    - db/**/*.rb
+    - lib/**/*.rb
+
+Rails/ReadWriteAttribute:
+  Include:
+    - app/models/**/*.rb
+
+Rails/ScopeArgs:
+  Include:
+    - app/models/**/*.rb
+
+Rails/TimeZone:
+  # The value `always` means that `Time` should be used with `zone`.
+  # The value `acceptable` allows usage of `in_time_zone` instead of `zone`.
+  EnforcedStyle: always
+  SupportedStyles:
+    - always
+    - acceptable
+
+Rails/Validation:
+  Include:
+    - app/models/**/*.rb

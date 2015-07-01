@@ -44,4 +44,5 @@ group :development do
   gem 'sandi_meter'
 
   gem 'guard-rspec', require: false
+  gem 'rubocop', require: false
 end

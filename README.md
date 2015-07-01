@@ -91,13 +91,18 @@ Deveped using Ruby 2.0, but I hadn't used any version specific things, so should
 There is some development infrastructure setup alongside the project in the form of git hooks. Currently this
 functionality is:
 
-* `post-commit`
-** Save current sandi_meter start for later analysis
+ * `pre-commit`:
+ ** Run rubocop to enforce good coding practice
+ * `post-commit`:
+ ** Save current sandi_meter start for later analysis
 
 To setup all hooks run the following in the project root:
 
 ```bash
-ln -s development/hooks/post-commit.rb .git/hooks/post-commit
+ln development/hooks/post-commit.rb .git/hooks/post-commit
+chmod +x .git/hooks/post-commit
+ln development/hooks/pre-commit.sh .git/hooks/pre-commit
+chmod +x .git/hooks/pre-commit
 ```
 
 ## Changelog (old)
