@@ -1,14 +1,16 @@
-class Users::SessionsController < Devise::SessionsController
-  respond_to :json
+module Users
+  class SessionsController < Devise::SessionsController
+    respond_to :json
 
-  def create
-    super do |user|
-      if request.format.json?
-        data = {
+    def create
+      super do |user|
+        if request.format.json?
+          data = {
             token: user.authentication_token,
             email: user.email
-        }
-        render json: data, status: 201 and return
+          }
+          render json: data, status: 201 and return
+        end
       end
     end
   end

@@ -6,8 +6,9 @@ AllCops:
   Exclude:
     - 'vendor/**/*'
     - 'bin/*'
-    - 'db/*'
+    - 'db/**/*'
     - 'config/**/*'
+    - 'spec/*_helper.rb'
     - !ruby/regexp /[Rake|Guard]file/
 
   RunRailsCops: true
@@ -16,6 +17,11 @@ AllCops:
 
 Style/Documentation:
   Enabled: false
+
+Style/FileName:
+  Exclude:
+    - development/hooks/*
+
 
 Style/AndOr:
   EnforcedStyle: conditionals
@@ -130,6 +136,9 @@ Style/SingleLineBlockParams:
     - inject:
         - a
         - e
+
+Metrics/LineLength:
+  Max: 120
 
 Style/SingleLineMethods:
   AllowIfMethodIsEmpty: true
